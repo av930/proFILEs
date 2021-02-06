@@ -1,0 +1,33 @@
+##this is configuration
+#
+git init
+## create repository 
+git clone -o bit https://av930@bitbucket.org/developenv/profiles.git
+git clone -o bit git@bitbucket.org:developenv/profiles.git
+
+## get remote repo info
+git remote -v 
+git remote show bit
+
+## change remote name
+git remote rm bit
+git remote add bit ssh://git@bitbucket.org:developenv/profiles.git
+git remote add bit https://av930@bitbucket.org/developenv/profiles.git
+git remote add bit git@bitbucket.org:developenv/profiles.git
+
+## git push & pull
+git push -u bit master
+git pull bit master
+
+
+## sub-project ##
+#android
+git clone git@github.com:mbrubeck/android-completion.git ~/.proFILEs/android
+git clone https://github.com/mbrubeck/android-completion.git
+
+# wiki
+git clone -o bit https://av930@bitbucket.org/av930/profile.git/wiki
+git clone -o bit git@bitbucket.org:av930/profile.git/wiki ~/.proFILEs/wiki
+
+
+

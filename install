@@ -1,0 +1,86 @@
+#!/bin/bash
+# #!명령은 이화일을 실행시킬 shell이 존재하는 path을 지정
+
+######################################################################
+# [warning] should be modified here
+######################################################################
+SRC=.proFILEs
+DST=$HOME
+
+######################################################################
+# pop up message
+######################################################################
+function winpop() {
+    echo $USERNAME SUCCESS! copy from $1  to $2;
+    #$1은 첫번째 인자, $2하면 두번째인자...로 무한대 지원가능
+    #echo 대신 net send 이용가능
+    return 0
+}
+
+
+
+######################################################################
+# make local copy of snapshot
+######################################################################
+function copy_tools() {
+    proFILEdir=$SRC
+    proFILEdirOS='unknown'
+
+    if [ $(expr match "$OSTYPE" 'cygwin') -ne 0 ]
+    then proFILEdirOS=${proFILEdir}/cygwin
+    else proFILEdirOS=${proFILEdir}/linux
+    fi
+
+    printf "======================================================================\n"
+    printf " COPY from ${proFILEdir} to $HOME dir\n"
+    set -x
+    pushd $HOME/${proFILEdir}
+
+    cp $1 and.sh indent.sh push_data.sh        \
+          cygwin/_cygwin.bat      \
+          \
+          $HOME/
+
+    cp ${1}R .byobu/ $HOME/
+    ln -fs  $HOME/${proFILEdir}/.inputrc        $HOME/.inputrc
+    ln -fs  $HOME/${proFILEdir}/.screenrc       $HOME/.screenrc
+    ln -fs  $HOME/${proFILEdir}/.splintrc       $HOME/.splintrc
+    ln -fs  $HOME/${proFILEdir}/.astylerc       $HOME/.astylerc
+    ln -fs  $HOME/${proFILEdir}/.indent.pro     $HOME/.indent.pro
+    ln -fs  $HOME/${proFILEdir}/.gitignore      $HOME/.gitignore
+    ln -fs  $HOME/${proFILEdirOS}/.gitconfig    $HOME/.gitconfig
+
+
+    ln -fs  $HOME/${proFILEdir}/.bash_aliases   $HOME/.bash_aliases
+    if [ -f "$HOME/.profile" ]; then mv "$HOME/.profile" "$HOME/.profile_backup";  fi
+    ln -fs  $HOME/${proFILEdir}/.profile      $HOME/.profile
+
+    popd
+    set +x
+
+    #Recursive - sub dircetory ,
+    #update - only udated file,
+    #verbose - what is being done
+    #force, - remove and copy
+
+    winpop $2 $3
+    return 0
+}
+
+
+######################################################################
+printf "CONFIRM : WILL UPDATE & COPY from $SRC $DST"
+printf "\n[c)opy/ u)pdate b)ackup  n)oting]: "
+read confirm
+if [ "$confirm" = "c" ]; then
+    copy_tools -ivf
+elif [ "$confirm" = "u" ]; then
+    copy_tools -iuvf
+elif [ "$confirm" = "b" ]; then
+    #backup을 만듦
+    copy_tools -ibuvf
+else
+    print "nothing happend, canceled all job"
+fi
+
+exit 0

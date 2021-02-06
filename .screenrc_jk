@@ -1,0 +1,140 @@
+## ===============================================================
+## CHARACTER-SET
+## ===============================================================
+defutf8 on
+defencoding utf-8
+encoding utf-8 utf-8
+
+
+## ===============================================================
+## ENV VARIABLES - Boolean values (on/off)
+## ===============================================================
+
+# 시작 message 없앰
+startup_message off
+
+
+
+
+# Time there is activity on that window is hidden, to tell it
+defmonitor on
+# The number of seconds to display the message
+msgwait 1
+
+
+# Message when there is movement of the window that is hidden
+activity ""
+# visual bell instead of sound
+vbell on
+# msg instead of bell which rang in hidden window
+bell_msg "BELL RING in window %."
+
+
+
+# 자동적으로 reconnect 되도록
+autodetach on
+
+# ban screen corruption in some program ex) nano
+altscreen on
+
+# make vertical bar cyan
+#rendition so kc
+
+
+
+
+## ===============================================================
+## STATUS BAR & CAPTION
+## ===============================================================
+
+# Window list that are open at that time in the last line out
+hardstatus on
+
+#대문자 밝은색/소문자 흐린색  k:black, r:red, g:green, y:yellow, b:blue, m:magenta, c:cyan, w:white, d:default color, .:leave color unchanged
+# each window status-bar
+caption always "%?%F%{+u wb}%? %{+b by}%n%f*%t%{-}"
+# global frame status-bar
+hardstatus alwayslastline '%{= kB}[%H]%{= kW}%-Lw%{= kG}%50> %n*%f %t%{= kW}%+Lw%< %{= kC}%-= %Y/%m/%d (%c %a)'
+#hardstatus alwayslastline '%{= kB}[%H]%{= kW}%-Lw%{= kG}%50> %n*%f %t%{= kW}%+Lw%< %{kC}%50=%d/%m/%Y %{kB}%80=%c%='
+
+
+## ===============================================================
+## xterm tweaks
+## ===============================================================
+# to enable 256-color support in vim on the screen
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce on 
+
+# I increase the scroll buffer
+defscrollback 10000
+
+
+## ===============================================================
+## VARIABLES - Paths and Files (esp. programs)
+## ===============================================================
+# to make mouse scroll to scroll up window not the history -not working why?
+termcapinfo xterm* ti@:te@
+# 시작시 shell login을 하기 위해, login-shell지정 (run .bashrc)
+# defshell -bash 와 같은 구문
+shell -$SHELL
+
+
+## ===============================================================
+## KEY-binding
+## ===============================================================
+
+## ESCAPE - the COMMAND CHARACTER
+## ---------------------------------------------------------------
+# escape 문자를 c-l로 설정
+escape ^l^l
+
+# show keymapping
+bind h help
+# just ctrl+x will quit all window
+bindkey "^x" quit
+
+# copy/register/paste
+# after input copy key, move your cursor and enter to start, enter to end, and run paste command
+bind ^c copy
+bind ^v paste .
+
+# 직접 명령을 넣으려면 escape :help 와 같은 형식을 넣으면 된다.
+# reload .screenrc
+bind r eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
+
+
+############################# window handle 
+# create & kill current window (exit)
+# kill for buffer, # remove for window
+# kill & remove will close both of buffer & window
+bind , screen
+bind . eval 'kill' 'remove'
+bind x remove
+
+#window split horizontal
+#bind [ split
+bind [ eval 'split' 'focus down' 'screen'
+bind ] eval 'split -v' 'focus down' 'screen'
+
+
+# move focus of window
+bindkey "^n" focus down
+bindkey "^p" focus up
+bindkey "^q" remove
+
+# switch window
+bind k prev 
+bind j next 
+# window listup
+bind l windowlist -b
+
+# window resize escape, - , +/=
+bind ^l eval 'fit' 'redisplay'
+bind - eval 'echo "Resize window"' 'command -c resize'
+bind -c resize + eval 'resize +1' 'command -c resize'
+bind -c resize = eval 'resize -1' 'command -c resize'
+
+############################# start up window
+# I want to create a window of use suspend
+

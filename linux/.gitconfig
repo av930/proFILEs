@@ -1,0 +1,38 @@
+################################################################################	
+[include]
+    path = ~/.proFILEs/.gitconfig
+    path = ~/_MyPrivate/_gitconfig
+
+
+################ command config    
+
+#git config --global diff.tool bc
+#git config --global merge.tool win
+
+[diff]
+    #tool = p4merge
+    tool = vimdiff
+
+[difftool "p4merge"]
+    cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+    keepTemporaries = false
+    trustExitCode = false
+    keepBackup = false
+[difftool "vi"]
+    prompt=false
+[merge]
+    keepBackup = false;
+    tool = p4merge
+
+[mergetool "p4merge"]
+    cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+    keepTemporaries = false
+    trustExitCode = false
+    keepBackup = false
+[gui]
+    encoding = cp949
+[color]
+    ui = auto
+[user]
+    name = joongkeun.kim
+	email = av9300@gmail.com

@@ -1,0 +1,219 @@
+## ===============================================================
+## CHARACTER-SET
+## ===============================================================
+defutf8 on
+defencoding utf-8
+encoding utf-8 utf-8
+
+
+## ===============================================================
+## ENV VARIABLES - Boolean values (on/off)
+## ===============================================================
+## detach on hangup
+## 자동적으로 reconnect 되도록
+ autodetach            on              # default: on
+
+# crlf                  off             # default: off
+# deflogin              off             # default: on
+# defsilence            off             # default: off
+# hardcopy_append       on              # default: off
+# hardcopy_append       off             # default: off
+# nethack               on              # default: off
+
+
+## The number of seconds to display the message
+ msgwait 1
+ silencewait           15              # default: 30
+#msgminwait            3              # default: 1
+
+## don't display the copyright page
+ startup_message       off             # default: on
+## pow_detach_msg:       Message shown when session gets power detached.
+# pow_detach_msg        "BYE"
+ pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+
+## msg instead of bell which rang in hidden window
+ bell_msg "BELL RING in window %."
+## pass on the "beep" (CTRL-G) by adding a '~': 
+ bell                  "bell     in %n (%t) [%w:%s]~"
+## no annoying audible bell, please use visual bell instead of sound
+ vbell                 on
+## vbell_msg:            Message shown when the "virtual bell" rings.
+ vbell_msg             " *beep* *beep* "
+
+ 
+## Time there is activity on that window is hidden, to tell it
+ defmonitor on
+## Message when there is movement of the window that is hidden
+# activity ""
+ activity              "activity in %n (%t) [%w:%s]~"
+
+## ban screen corruption in some program ex) nano
+ altscreen on
+
+## make vertical bar cyan
+# rendition so kc
+
+## increase the scroll buffer
+ defscrollback         10000           # default: 100, 
+
+  
+## ===============================================================
+## STATUS BAR & CAPTION
+## ===============================================================
+
+## 대문자 밝은색/소문자 흐린색  k:black, r:red, g:green, y:yellow, b:blue, m:magenta, c:cyan, w:white, d:default color, .:leave color unchanged
+## each window status-bar
+# caption always "%>%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?%<"
+# caption always "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
+# caption always "%?%F%{.RW}%?%3n %t%? [%h]%?"
+# caption always "%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
+# caption always "%{kG}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kG}%?%+Lw%?"
+# caption always "%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw% ?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
+# caption always "%{rk}%H%{gk} | %c %{yk}%d.%m.%Y | %?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%? | %{rk} Load: %l %{wk}"
+# caption always "%{=}%{+b kR}%H %{+b kY}%M %d %{+b kG}%0c %{+b kB}%?%-Lw%?%{+b kW}%n*%f %kt%?(%u)%?%{+bkB}%?%+Lw%? | %{kR} Load: %l %{kB}"
+# caption always "%0=%{+b rk}%H %{bk}| %0L=%{mk}%>%-Lw%{= BW}%n%f* %t%{-}%+Lw%L>%?(%u)%? %{bk}|%>%=%{Yk} %=%C%A %Y.%m.%d %{bk}%100="
+ caption always "%?%F%{+u wb}%? %{+b by}%n%f*%t%{-}"
+
+## Window list that are open at that time in the last line out
+hardstatus on
+
+## global frame status-bar
+# hardstatus alwayslastline '%{= kB}[%H]%{= kW}%-Lw%{= kG}%50> %n*%f %t%{= kW}%+Lw%< %{kC}%50=%d/%m/%Y %{kB}%80=%c%='
+# hardstatus alwayslastline '%{= kB}[%H]%{= kW}%-Lw%{= kG}%50> %n*%f %t%{= kW}%+Lw%< %{= kC}%-= %Y/%m/%d (%c %a)'
+hardstatus alwayslastline '%{= kB}[%H]%{= kW}%-Lw%{= kG}%50> %n*%f %t%{= kW}%+Lw%< %{= kC}%-= %Y/%m/%d (%c %a)'
+ 
+ 
+
+## "sorendition": set the colors for the "messages" and "text marking"
+## (ie text you mark in copy mode, it also effects the hardstatus and caption):
+## sorendition 10 99 # default!
+# sorendition 02 40 # green  on black
+# sorendition 02 34 # yellow on blue
+# sorendition    rw # red    on white
+# sorendition    kG # black  on bold green
+
+
+
+
+## ===============================================================
+## xterm tweaks
+## ===============================================================
+## xterm understands both im/ic and doesn't have a status line.
+## Note: Do not specify im and ic in the real termcap/info file as
+## some programs (e.g. vi) will not work anymore.
+##  termcap  xterm hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
+##  terminfo xterm hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
+
+## 80/132 column switching must be enabled for ^AW to work
+## change init sequence to not switch width
+##  termcapinfo  xterm Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+
+## Make the output buffer large for (fast) xterms.
+ termcapinfo xterm* OL=10000
+
+
+## tell screen that xterm can switch to dark background and has function keys.
+  termcapinfo xterm 'VR=\E[?5h:VN=\E[?5l'
+  termcapinfo xterm 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
+  termcapinfo xterm 'kh=\EOH:kI=\E[2~:kD=\E[3~:kH=\EOF:kP=\E[5~:kN=\E[6~'
+
+## special xterm hardstatus: use the window title.
+  termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+
+## to enable 256-color support in vim on the screen
+## temporary ban for not working in conemu
+# attrcolor b ".I"
+# termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# defbce on
+
+
+## ===============================================================
+## VARIABLES - Paths and Files (esp. programs)
+## ===============================================================
+## bufferfile:   The file to use for commands
+##               "readbuf" ('<') and  "writebuf" ('>'):
+## bufferfile            $HOME/.screen_exchange
+##
+## hardcopydir:  The directory which contains all hardcopies.
+  hardcopydir           $HOME/.screendir
+# hardcopydir           ~/.screen
+
+## shell:  Default process started in screen's windows.
+## Makes it possible to use a different shell inside screen
+## than is set as the default login shell.  Halleluja! :-)
+## 시작시 shell login을 하기 위해, login-shell지정 (run .bashrc)
+## defshell -bash 와 같은 구문
+# shell -$SHELL
+# shell                 zsh
+ shell                 bash
+
+## log file
+ deflog on
+
+
+## ===============================================================
+## KEY-binding
+## ===============================================================
+
+## ESCAPE - the COMMAND CHARACTER
+## ---------------------------------------------------------------
+## escape 문자를 c-l로 설정
+escape ^l^l
+
+## show keymapping
+bind h help
+## just ctrl+x will quit all window
+bindkey "^x" quit
+
+## copy/register/paste
+## after input copy key, move your cursor and enter to start, enter to end, and run paste command
+bind ^c copy
+bind ^v paste .
+
+## 직접 명령을 넣으려면 escape :help 와 같은 형식을 넣으면 된다.
+# reload .screenrc
+bind r eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
+
+
+## WINDOW handle 
+## ---------------------------------------------------------------
+## create & kill current window (exit)
+## kill for buffer, # remove for window
+## kill & remove will close both of buffer & window
+bind , screen
+bind . eval 'kill' 'remove'
+bind x remove
+
+## window split horizontal
+#bind [ split
+bind [ eval 'split' 'focus down' 'screen'
+bind ] eval 'split -v' 'focus down' 'screen'
+
+
+## move focus of window
+bindkey "^n" focus down
+bindkey "^p" focus up
+bindkey "^q" remove
+
+## switch window
+bind k prev 
+bind j next 
+## window listup
+bind l windowlist -b
+
+## window resize escape, - , +/=
+bind ^l eval 'fit' 'redisplay'
+bind - eval 'echo "Resize window"' 'command -c resize'
+bind -c resize + eval 'resize +1' 'command -c resize'
+bind -c resize = eval 'resize -1' 'command -c resize'
+
+## ===============================================================
+## STARTUP of programs in an extra window:
+## ===============================================================
+## Uncomment one/some following lines to automatically let
+## SCREEN start some programs in the given window numbers:
+# screen -t mail            0 mutt
+# screen -t vim             1 vim
+# screen -t google          20 $BROWSER http://www.google.com
+# screen -t vmstat       0   vmstat 10
