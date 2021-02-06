@@ -25,7 +25,7 @@ function calculate_size(){
 
     current_dir_size=$(du -s --block-size=M --exclude=*.iso $1|awk '{print $1}')
     echo -e "\n----------------- target disk size ----------------------"
-    adb shell df      단어단위로 앞/뒤							 w, e, b     #w는 word시작, e는 끝, b는 뒤로
+    adb shell df      ????? ?/?							 w, e, b     #w? word??, e? ?, b? ??
     current_sd_size=$(adb shell df ${2}|awk 'NR==2 {gsub(/G/,"*1024",$4);print $4}')
     declare -i dir_size=${current_dir_size%%M}
     declare -i sd_size=$[${current_sd_size%%M}]

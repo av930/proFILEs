@@ -59,8 +59,8 @@ set horizontal-scroll-mode off
 # Vi mode : ESC+b : delete word
  
 ############################## This is Key Binding ##############################
-#key-binding을 해주는 부분으로 현재 사용하는 key값을 알아내려면 다음과 같이 하면된다.
-#Ctrl+V, key -> homekey를 알아내려면 Ctrl+V HOME으로 [1~ 값이 나오게 된다.
+#key-binding? ??? ???? ?? ???? key?? ????? ??? ?? ????.
+#Ctrl+V, key -> homekey? ????? Ctrl+V HOME?? [1~ ?? ??? ??.
 
 #allow the use of the Home/End keys
 "\e[1~": beginning-of-line
@@ -71,8 +71,8 @@ set horizontal-scroll-mode off
 "\e[2~": quoted-insert
 
 
-# page-up/down으로 scroll-up/down은 terminal setting으로 처리한다.
-# shell setting이 아님. 그렇지 않으면 screen에서 pageup/down을 ctrl과 함께 눌러야 한다. 
+# page-up/down?? scroll-up/down? terminal setting?? ????.
+# shell setting? ??. ??? ??? screen?? pageup/down? ctrl? ?? ??? ??. 
 # mappings for "page up" and "page down" to step to the beginning/end of the history
 "\e[5~": beginning-of-history
 "\e[6~": end-of-history

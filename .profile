@@ -16,12 +16,12 @@ export proFILEdir proFILEdirOS
 # common configuration
 ##################################################################
 ##### LANG 
-#과거 사용하던 version
+#?? ???? version
 #LANG=C.euckr
 #LANG=en_US.UTF-8
 #LANG=ko_KR.euckr
 
-#현재 검증된 version
+#?? ??? version
 LANG=ko_KR.UTF-8
 
 ##### color code

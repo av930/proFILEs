@@ -4,21 +4,21 @@ defutf8 on
 defencoding utf-8
 encoding utf-8 utf-8
   
-# 시작시 shell login을 하기 위해, login-shell지정 (run .bashrc)
-# defshell -bash 와 같은 구문
+# ??? shell login? ?? ??, login-shell?? (run .bashrc)
+# defshell -bash ? ?? ??
 #shell -$SHELL
 shell bash
 # Window list that are open at that time in the last line out
 hardstatus on
 
-#대문자 밝은색/소문자 흐린색  k:black, r:red, g:green, y:yellow, b:blue, m:magenta, c:cyan, w:white, d:default color, .:leave color unchanged
+#??? ???/??? ???  k:black, r:red, g:green, y:yellow, b:blue, m:magenta, c:cyan, w:white, d:default color, .:leave color unchanged
 # each window status-bar
 caption always "%?%F%{+u wb}%? %{+b by}%n%f*%t%{-}"
 # global frame status-bar
 hardstatus alwayslastline '%{= kB}[%H]%{= kW}%-Lw%{= kG}%50> %n*%f %t%{= kW}%+Lw%< %{= kC}%-= %Y/%m/%d (%c %a)'
 #hardstatus alwayslastline '%{= kB}[%H]%{= kW}%-Lw%{= kG}%50> %n*%f %t%{= kW}%+Lw%< %{kC}%50=%d/%m/%Y %{kB}%80=%c%='
 
-# 시작 message 없앰
+# ?? message ??
 startup_message off
 
 
@@ -48,7 +48,7 @@ bell_msg "BELL RING in window %."
 
 
 
-# 자동적으로 reconnect 되도록
+# ????? reconnect ???
 autodetach on
 
 # ban screen corruption in some program ex) nano
@@ -57,7 +57,7 @@ altscreen on
 # make vertical bar cyan
 #rendition so kc
 ############################# basick key
-# escape 문자를 c-l로 설정
+# escape ??? c-l? ??
 escape ^l^l
 
 # show keymapping
@@ -70,7 +70,7 @@ bindkey "^x" quit
 bind ^c copy
 bind ^v paste .
 
-# 직접 명령을 넣으려면 escape :help 와 같은 형식을 넣으면 된다.
+# ?? ??? ???? escape :help ? ?? ??? ??? ??.
 # reload .screenrc
 bind r eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
 
