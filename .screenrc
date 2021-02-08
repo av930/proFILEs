@@ -10,7 +10,7 @@ encoding utf-8 utf-8
 ## ENV VARIABLES - Boolean values (on/off)
 ## ===============================================================
 ## detach on hangup
-## ????? reconnect ???
+## 자동적으로 reconnect 되도록
  autodetach            on              # default: on
 
 # crlf                  off             # default: off
@@ -62,7 +62,7 @@ encoding utf-8 utf-8
 ## STATUS BAR & CAPTION
 ## ===============================================================
 
-## ??? ???/??? ???  k:black, r:red, g:green, y:yellow, b:blue, m:magenta, c:cyan, w:white, d:default color, .:leave color unchanged
+## 대문자 밝은색/소문자 흐린색  k:black, r:red, g:green, y:yellow, b:blue, m:magenta, c:cyan, w:white, d:default color, .:leave color unchanged
 ## each window status-bar
 # caption always "%>%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?%<"
 # caption always "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
@@ -142,8 +142,8 @@ hardstatus alwayslastline '%{= kB}[%H]%{= kW}%-Lw%{= kG}%50> %n*%f %t%{= kW}%+Lw
 ## shell:  Default process started in screen's windows.
 ## Makes it possible to use a different shell inside screen
 ## than is set as the default login shell.  Halleluja! :-)
-## ??? shell login? ?? ??, login-shell?? (run .bashrc)
-## defshell -bash ? ?? ??
+## 시작시 shell login을 하기 위해, login-shell지정 (run .bashrc)
+## defshell -bash 와 같은 구문
 # shell -$SHELL
 # shell                 zsh
  shell                 bash
@@ -158,7 +158,7 @@ hardstatus alwayslastline '%{= kB}[%H]%{= kW}%-Lw%{= kG}%50> %n*%f %t%{= kW}%+Lw
 
 ## ESCAPE - the COMMAND CHARACTER
 ## ---------------------------------------------------------------
-## escape ??? c-l? ??
+## escape 문자를 c-l로 설정
 escape ^l^l
 
 ## show keymapping
@@ -171,7 +171,7 @@ bindkey "^x" quit
 bind ^c copy
 bind ^v paste .
 
-## ?? ??? ???? escape :help ? ?? ??? ??? ??.
+## 직접 명령을 넣으려면 escape :help 와 같은 형식을 넣으면 된다.
 # reload .screenrc
 bind r eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
 

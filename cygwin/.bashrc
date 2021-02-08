@@ -1,6 +1,6 @@
 #------------------------------ cygwin -----------------------------------------
 # The absolute path must be eliminated within this file
-# ? ???? ?? path? ??? ???.
+# 이 파일에는 절대 path가 없어야 합니다.
 ############################## Prompt DEFINE #####################################
 
 ############################### USER DEFINE #####################################
@@ -49,4 +49,5 @@ function set-sdk(){
 
 
 ############################### Utility #####################################
-printf '[%s] runned: [%s:%s] sourced\n' "$0" "$BASH_SOURCE" "$LINENO"
+
+printf '[%s] runned: [%s] sourced\n' "$0" "$BASH_SOURCE"

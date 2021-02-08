@@ -1,5 +1,5 @@
 #!/bin/bash
-# #!??? ???? ???? shell? ???? path? ??
+# #!명령은 이화일을 실행시킬 shell이 존재하는 path을 지정
 
 ######################################################################
 # [warning] should be modified here
@@ -12,8 +12,8 @@ DST=$HOME
 ######################################################################
 function winpop() {
     echo $USERNAME SUCCESS! copy from $1  to $2;
-    #$1? ??? ??, $2?? ?????...? ??? ????
-    #echo ?? net send ????
+    #$1은 첫번째 인자, $2하면 두번째인자...로 무한대 지원가능 
+    #echo 대신 net send 이용가능
     return 0
 }
 
@@ -77,9 +77,9 @@ if [ "$confirm" = "c" ]; then
 elif [ "$confirm" = "u" ]; then
     copy_tools -iuvf
 elif [ "$confirm" = "b" ]; then
-    #backup? ??
-    copy_tools -ibuvf
-else
+    #backup을 만듦 
+    copy_tools -ibuvf 
+else 
     print "nothing happend, canceled all job"
 fi
 

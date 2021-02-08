@@ -48,7 +48,7 @@ function launch_cur_dir()
 
 function xming()
 {
-    Command=$(w|awk '/joongkeu/ {print $3}' |sort -u); 
+    Command=$(w|awk '/joongkeu/ {print $3}'|sed 's/:.*//' |sort -u); 
     export DISPLAY=${Command}:0.0
 }
 
