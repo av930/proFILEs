@@ -56,7 +56,8 @@ PATH=".:${HOME}:${proFILEdir}:${HOME}/bin:${PATH}"
 # screen or byobu (default is screen)
 ##################################################################
 if [[ ${SHLVL} -eq 1 && -x $(which screen) ]]; then
-    ((SHLVL+=1)); export SHLVL
+    #((SHLVL+=1)); export SHLVL
     #exec screen -R -e "^Ee" ${SHELL} -l
-    sc
+    #start screen if not using cygwin
+    if ! [ "$OSTYPE"="cygwin" ]; then sc; fi
 fi

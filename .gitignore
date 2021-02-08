@@ -28,6 +28,7 @@
 *.log
 *.sql
 *.sqlite
+screenlog.*
 
 # OS generated files #
 ######################
