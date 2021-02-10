@@ -43,7 +43,7 @@ function launch_cur_dir()
     #echo "$(whoami)@$ip_addr:$proFILEdir/.path.log"
     #print current path as windows type
     path=$(pwd|sed "s:$home_name:\/\/$ip_addr:"|sed 's:\/:\\:g')
-    echo "$path" > ${HOME}/.proFILEs/.path.log
+    echo "$path" | tee ${HOME}/.proFILEs/.path.log
 }
 
 function xming()
