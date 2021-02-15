@@ -1,7 +1,7 @@
 ################################################################################	
 [include]
     path = ~/.proFILEs/.gitconfig
-    path = /cygdrive/.gradle/OneDrive/_MyPrivate/_gitconfig
+    path = ~/.proFILEs/.gitconfig.user
 
 ################ command config
 
@@ -44,6 +44,3 @@
 [mergetool "sourcetree"]
     cmd = 'D:/.gradle/OneDrive/_MyProgram/_IDEditor/_BC30/BComp.exe' \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
     trustExitCode = true
-[user]
-	email = av9300@gmail.com
-	name = av9300
