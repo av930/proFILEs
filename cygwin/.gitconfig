@@ -1,12 +1,15 @@
 ################################################################################	
 [include]
     path = ~/.proFILEs/.gitconfig
-    path = /cygdrive/D/_MyCloud/OneDrive/_MyPrivate/_gitconfig
+    path = /cygdrive/.gradle/OneDrive/_MyPrivate/_gitconfig
 
 ################ command config
 
 #git config --global diff.tool bc
 #git config --global merge.tool win
+[core]
+    # when push, convert to linux format from CRLF to LF
+    autocrlf = input
 
 [diff]
     tool = bc
@@ -34,19 +37,13 @@
 [gui]
     encoding = cp949
 
-[alias]
 [color]
-	ui = auto
-[push]
-	default = simple
-[user]
-	name = joongkeun.kim
-	email = joongkeun.kim@lge.com
-[core]
-# when push, convert to linux format from CRLF to LF
-	autocrlf = input
+    ui = auto
 [difftool "sourcetree"]
-	cmd = 'D:/_MyCloud/OneDrive/_MyProgram/_IDEditor/_BC30/BComp.exe' \"$LOCAL\" \"$REMOTE\"
+    cmd = 'D:/.gradle/OneDrive/_MyProgram/_IDEditor/_BC30/BComp.exe' \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
-	cmd = 'D:/_MyCloud/OneDrive/_MyProgram/_IDEditor/_BC30/BComp.exe' \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
-	trustExitCode = true
+    cmd = 'D:/.gradle/OneDrive/_MyProgram/_IDEditor/_BC30/BComp.exe' \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+    trustExitCode = true
+[user]
+	email = av9300@gmail.com
+	name = av9300
