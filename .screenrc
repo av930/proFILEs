@@ -217,3 +217,4 @@ bind -c resize = eval 'resize -1' 'command -c resize'
 # screen -t vim             1 vim
 # screen -t google          20 $BROWSER http://www.google.com
 # screen -t vmstat       0   vmstat 10
+
