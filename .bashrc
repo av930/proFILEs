@@ -223,4 +223,7 @@ if [ -f "${USR_FILE}" ]; then source "${USR_FILE}" ;fi
 # show banner when login in screen
 ##################################################################################
 USR_FILE=${proFILEdir}/.banner
-if [ -f "${USR_FILE}" ] && [ -n "$STY" ]; then source "${USR_FILE}" ;fi
+
+if [ -f "${USR_FILE}" ] && [ -n "$STY" ] && [ "$opt_banner" = "yes" ] 
+	then source "${USR_FILE}" 
+fi

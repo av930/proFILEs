@@ -36,10 +36,7 @@ function copy_tools() {
     set -x
     pushd $HOME/${proFILEdir}
 
-    cp $1 and.sh indent.sh push_data.sh        \
-          cygwin/_cygwin.bat      \
-          \
-          $HOME/
+    cp $1 default.config $HOME/profile.config
 
     cp ${1}R .byobu/ $HOME/
     ln -fs  $HOME/${proFILEdir}/.inputrc        $HOME/.inputrc

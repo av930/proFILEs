@@ -9,8 +9,8 @@ else proFILEdirOS=${proFILEdir}/linux
 fi
 export proFILEdir proFILEdirOS
 
-#USR_FILE=${proFILEdir}/.profile
-#if [ -f "${USR_FILE}" ]; then source "${USR_FILE}" ;fi
+USR_FILE=~/profile.config
+if [ -f "${USR_FILE}" ]; then source "${USR_FILE}" ;fi
 
 
 # common configuration
@@ -59,5 +59,5 @@ if [[ ${SHLVL} -eq 1 && -x $(which screen) ]]; then
     #((SHLVL+=1)); export SHLVL
     #exec screen -R -e "^Ee" ${SHELL} -l
     #start screen if not using cygwin
-    if [ "$OSTYPE" != "cygwin" ]; then sc; fi
+    if [ "$OSTYPE" != "cygwin" ] && [ "$opt_screen" = "yes" ]; then sc; fi
 fi
