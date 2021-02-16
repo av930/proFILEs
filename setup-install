@@ -4,8 +4,17 @@
 ######################################################################
 # [warning] should be modified here
 ######################################################################
-SRC=.proFILEs
+proFILEdir=$(readlink -f $(dirname $BASH_SOURCE))
+if [ "${proFILEdir##*/}" != ".proFILEs" ] || [ -z "${proFILEdir}" ]; then
+  echo "Your project is located here: [$proFILEdir]"
+  echo 'Please run setup-install in "proFILEs" dir'
+  read -p 'or check your "proFILEs" project is not clone into ".proFILEs"'
+  exit
+fi
+
+SRC=${proFILEdir}
 DST=$HOME
+
 
 ######################################################################
 # pop up message
