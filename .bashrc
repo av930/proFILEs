@@ -55,7 +55,7 @@ alias sc='screen -U -R'
 alias scs='screen -U -R -c .proFILEs/.screenrc_spilt'
 function scx()
 {
-    if [ $1 != "" ]; then 
+    if [ "$1" != "" ]; then 
        #kill only one
        screen -S $1 -X quit
     else
