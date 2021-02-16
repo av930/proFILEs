@@ -7,7 +7,6 @@
 proFILEdir=$(readlink -f $(dirname $BASH_SOURCE))
 if [ "${proFILEdir##*/}" != ".proFILEs" ] || [ -z "${proFILEdir}" ]; then
   echo "Your project is located here: [$proFILEdir]"
-  echo 'Please run setup-install in "proFILEs" dir'
   read -p 'or check your "proFILEs" project is not clone into ".proFILEs"'
   exit
 fi
@@ -27,9 +26,8 @@ function winpop() {
 }
 
 
-
 ######################################################################
-# make local copy of snapshot
+# make copy
 ######################################################################
 function copy_tools() {
     proFILEdir=$SRC
@@ -43,7 +41,7 @@ function copy_tools() {
     printf "======================================================================\n"
     printf " COPY from ${proFILEdir} to $HOME dir\n"
     set -x
-    pushd $HOME/${proFILEdir}
+    pushd ${proFILEdir}
 
     cp $1 default.config $HOME/profile.config
 
@@ -75,6 +73,25 @@ function copy_tools() {
 
 
 ######################################################################
+# make remove
+######################################################################
+function remove_tools() {
+
+    rm -f $HOME/.inputrc      \
+          $HOME/.screenrc     \
+          $HOME/.splintrc     \
+          $HOME/.astylerc     \
+          $HOME/.indent.pro   \
+          $HOME/.gitignore    \
+          $HOME/.gitconfig    \
+          $HOME/.bash_aliases \
+          $HOME/.profile      \
+
+    return 0
+}
+
+
+######################################################################
 printf "CONFIRM : WILL UPDATE & COPY from $SRC $DST"
 printf "\n[c)opy/ u)pdate b)ackup  n)oting]: "
 read confirm
@@ -85,6 +102,8 @@ elif [ "$confirm" = "u" ]; then
 elif [ "$confirm" = "b" ]; then
     #backup¿ª ∏∏µÍ 
     copy_tools -ibuvf 
+elif [ "$confirm" = "r" ]; then
+    remove_tools
 else 
     print "nothing happend, canceled all job"
 fi
