@@ -101,7 +101,7 @@ read confirm
 if [ "$confirm" = "c" ]; then
     copy_tools -ivf
 elif [ "$confirm" = "u" ]; then
-    copy_tools -iuvf
+    copy_tools -uvf
 elif [ "$confirm" = "b" ]; then
     #backupÀ» ¸¸µê 
     copy_tools -ibuvf 
@@ -114,7 +114,8 @@ fi
 ######################################################################
 # post check
 ######################################################################
-if [ ! $(which sceen &>/dev/null) ] 
-then printf "${RED} you need to run: sudo apt-get install screen ${NCOL}"
+if [ ! $(which sceen &>/dev/null) ]; then 
+  printf "you need to run:${RED} sudo apt-get install screen ${NCOL}"
+  printf "${YELLOW} this configuration needs screen except CYGWIN ${NCOL}"
 fi
 exit 0
