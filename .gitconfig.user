@@ -5,3 +5,18 @@
 [github]
     user = av930
     token = 7cd27e7201d3edc8d482c97c4b89441e
+
+[protocol]
+  version = 2
+[url "https://private.source.codeaurora.org"]
+insteadOf = ssh://git.codeaurora.org:9222
+insteadOf = ssh://git.codeaurora.org
+insteadOf = ssh://privgit.codeaurora.org:9222
+insteadOf = ssh://privgit.codeaurora.org
+insteadOf = ssh://git@git.codeaurora.org:9222
+insteadOf = ssh://git@git.codeaurora.org
+insteadOf = ssh://git@privgit.codeaurora.org:9222
+insteadOf = ssh://git@privgit.codeaurora.org
+[url "https://source.codeaurora.org"]
+	insteadOf = git://codeaurora.org
+

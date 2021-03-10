@@ -1,10 +1,40 @@
-[user]
-	name = joongkeun.kim
-	email = joongkeun.kim@.com
 
+[include]
+    path = ~/.proFILEs/.gitconfig
+    path = ~/.proFILEs/.gitconfig.user
+
+
+################ command config    
+
+#git config --global diff.tool bc
+#git config --global merge.tool win
+
+[diff]
+    #tool = p4merge
+    tool = vimdiff
+
+[difftool "p4merge"]
+    cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+    keepTemporaries = false
+    trustExitCode = false
+    keepBackup = false
+[difftool "vi"]
+    prompt=false
+[merge]
+    keepBackup = false;
+    tool = p4merge
+
+[mergetool "p4merge"]
+    cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+    keepTemporaries = false
+    trustExitCode = false
+    keepBackup = false
 [color]
     ui = auto
-
 [filter "lfs"]
     smudge = git-lfs smudge -- %f
     clean = git-lfs clean -- %f 
+
+[user]
+    name = joongkeun.kim
+    email = joongkeun.kim@lge.com
