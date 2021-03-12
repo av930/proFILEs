@@ -1,3 +1,8 @@
+# User customed file
+######################
+.gitconfig.user
+
+
 # Compiled source #
 ###################
 *.com
@@ -36,4 +41,4 @@ screenlog.*
 ehthumbs.db
 Icon?
 Thumbs.db
-wiki/
+

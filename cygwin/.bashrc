@@ -3,18 +3,6 @@
 # 이 파일에는 절대 path가 없어야 합니다.
 ############################## Prompt DEFINE #####################################
 
-############################### USER DEFINE #####################################
-
-############################### DIR ALIAS #####################################
-while read -r -a element
-do
-    if [ "${element[0]//\"}" == "ALIAS" ]; then
-        eval $(echo  alias ${element[1]}=${element[2]//\\/\/} ${element[3]//\\/\/})
-    else
-        :
-    fi
-done < ${DIR_SETTING}/_SetupProgram/setting-public.txt
-
 
 ############################### Tool ALIAS #####################################
 function launch_cur_dir()
@@ -25,15 +13,13 @@ function launch_cur_dir()
 alias xming='export DISPLAY=localhost:0.0'
 
 alias nt='rxvt -rv -sr -sw -sl 9999 -fg black -bg white -fn "Lucida Sans Typewriter" -mcc -ls -g 100X50 -e /usr/bin/bash --login -i &'
-
 alias  gvi="VIMINIT=':so ~/.vim/.vimrc' MYVIMRC='~/.vim/.vimrc' /cygdrive/c/DevTools/gVim/vim74/gvim.exe $* &"
 alias gvip="VIMINIT=':so ~/.vim/.vimrc_backup' MYVIMRC='~/.vim/.vimrc_backup' /cygdrive/c/DevTools/gVim/vim74/gvim.exe $* &"
 alias gviu="VIMINIT=':so ~/.viu/.vimrc' MYVIMRC='~/.viu/.vimrc' /cygdrive/c/DevTools/gVim/vim74/gvim.exe $* &"
-alias gvio="VIMINIT=':so ~/.vio/.vimrc' MYVIMRC='~/.vio/.vimrc' /cygdrive/c/DevTools/gVim/vim74/gvim.exe $* &"
 
-alias updateDonut='rsync -auvht --port=873 172.21.74.32::$USER/mydonut/*  /cygdrive/d/SRC_WORK/Donut/'
-alias updateEclair='rsync -auvht --port=873 172.21.74.32::$USER/myeclair/* /cygdrive/d/SRC_WORK/Eclair/'
-alias updateCapp='rsync -auvht --exclude-from=exclude.txt --port=873 172.21.74.32::$USER/capp/* /cygdrive/d/SRC_WORK/capp/'
+
+alias cmdRsync='echo rsync -auvht --port=873 172.21.74.32::$USER/SRC_DIR/*  /cygdrive/d/DEST_DIR'
+alias cmdRsyncExclude='echo rsync -auvht --exclude-from=exclude.txt --port=873 172.21.74.32::$USER/SRC_DIR/* /cygdrive/d/DEST_DIR'
     
 ############################### ENV DEFINE ######################################
 alias set-lint='LARCH_PATH=$DEVTOOLS/GnuTool/SPLint/lib;

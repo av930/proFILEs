@@ -1,7 +1,10 @@
+################ includeif
 [user]
-    name = av9300
-    email = av9300@gmail.com
+	name = joongkeun.kim
+	email = joongkeun.kim@lge.com
 
-[github]
-    user = av930
-    token = 7cd27e7201d3edc8d482c97c4b89441e
+
+[includeIf "gitdir:~/.proFILEs/"]
+    path = ~/.proFILEs/.gitconfig.user.extra
+
+
