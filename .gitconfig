@@ -13,7 +13,7 @@
     #autocrlf:[true: when checkout & commit, input:only commit,false: nothing]
     #input for linux, true for windows
     quotepath = off
-    
+
 [branch]
     autosetuprebase = always
 

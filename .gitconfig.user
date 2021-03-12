@@ -1,7 +1,7 @@
-################ includeif
+################ user customed setting
 [user]
-	name = joongkeun.kim
-	email = joongkeun.kim@lge.com
+    name = joongkeun.kim
+    email = joongkeun.kim@lge.com
 
 
 [includeIf "gitdir:~/.proFILEs/"]
