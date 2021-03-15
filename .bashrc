@@ -50,10 +50,10 @@ alias ps="ps -u $USER -o pid,args --forest"
 alias du='echo subdir size is; du -sh'
 # screen configuration
 # alias byobu='byobu -U $*'
-alias scl='screen -ls'
-alias sc='screen -U -R'
-alias scs='screen -U -R -c .proFILEs/.screenrc_spilt'
-function scx()
+alias sccl='screen -ls'
+alias sccr='screen -U -R'
+alias sccs='screen -U -R -c .proFILEs/.screenrc_spilt'
+function sccx()
 {
     if [ "$1" != "" ]; then 
        #kill only one
@@ -68,10 +68,6 @@ function scx()
     fi
 }
 
-function repo()
-{
-    if [ "$1" == "sync" ]; then $(which repo) $* -c ;else $(which repo) $*; fi
-}
 ############################### ENV DEFINE ######################################
 function setup-gdb()
 {
@@ -124,12 +120,12 @@ alias show-path='echo $PATH|sed "s/:/:\n/g"'
 
 ############################### Utility #####################################
 alias  vi="VIMINIT=':so ~/.vim/.vimrc' MYVIMRC='~/.vim/.vimrc' vim $*"
-alias  vip="VIMINIT=':so ~/.viu/.vimrc_backup' MYVIMRC='~/.viu/.vimrc_backup' vim $* -V9myLog"
-alias  viu="VIMINIT=':so ~/.viu/.vimrc' MYVIMRC='~/.viu/.vimrc' vim $*" 
-alias  vio="VIMINIT=':so ~/.vio/.vimrc' MYVIMRC='~/.vio/.vimrc' vim $* -V9myLog"
+alias  vimp="VIMINIT=':so ~/.viu/.vimrc_backup' MYVIMRC='~/.viu/.vimrc_backup' vim $* -V9myLog"
+alias  vimu="VIMINIT=':so ~/.viu/.vimrc' MYVIMRC='~/.viu/.vimrc' vim $*" 
+alias  vimo="VIMINIT=':so ~/.vio/.vimrc' MYVIMRC='~/.vio/.vimrc' vim $* -V9myLog"
 
 #go file on symbol definition
-alias vis='vi -t'
+alias vimt='vi -t'
 
 
 function findgrep() { find . -name $1 -print | xargs grep -e "$2";}
@@ -182,7 +178,7 @@ fi
  return 0
 }
 
-function out(){
+function show-out(){
 local INPUT
 INPUT=$(find ~/ -maxdepth 3 -type d -name "out*" -exec \
     find {}/target/product -mindepth 1 -maxdepth 1 -type d \; 2> /dev/null)
@@ -200,8 +196,8 @@ export CLCP_DIR="${HOME}/.proFILEs/"
 #command line clipboard file
 export CLCF="${HOME}/.proFILEs/.path.log"
 
-alias cc="sh ${CLCP_DIR}/cc.sh"
-alias cv="cat ${CLCF}"
+alias copy_cc="sh ${CLCP_DIR}/cc.sh"
+alias coyp_cv="cat ${CLCF}"
 #alias lll="launch_cur_dir | cc; cv"
 alias lll="launch_cur_dir"
 
