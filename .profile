@@ -63,5 +63,5 @@ if [[ ${SHLVL} -eq 1 && -x $(which screen) ]]; then
     #((SHLVL+=1)); export SHLVL
     #exec screen -R -e "^Ee" ${SHELL} -l
     #start screen if not using cygwin
-    if [ "$OSTYPE" != "cygwin" ] && [ "$opt_screen" = "yes" ]; then sc; fi
+    if [ "$OSTYPE" != "cygwin" ] && [ "$opt_screen" = "yes" ]; then screen -U -R; fi
 fi

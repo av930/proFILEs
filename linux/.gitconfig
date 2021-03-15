@@ -29,3 +29,5 @@
     trustExitCode = false
     keepBackup = false
 
+[color]
+	ui = auto

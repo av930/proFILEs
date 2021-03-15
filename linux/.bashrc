@@ -53,8 +53,6 @@ function xming()
 }
 
 
-alias dl='echo current account disk allocation limit is;sudo repquota -as'
-
 ############################### ENV DEFINE ######################################
 function set_sdk(){
     export PATH=${SRC_SDK}/platform-tools:${SRC_SDK}/tools:~/bin/LGANT:$PATH;
