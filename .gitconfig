@@ -17,7 +17,9 @@
 [branch]
     autosetuprebase = always
 
-
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    clean = git-lfs clean -- %f
 ################ gui config    
 [color]
     ui = auto
