@@ -136,7 +136,7 @@ hardstatus alwayslastline '%{= kB}[%H]%{= kW}%-Lw%{= kG}%50> %n*%f %t%{= kW}%+Lw
 ## bufferfile            $HOME/.screen_exchange
 ##
 ## hardcopydir:  The directory which contains all hardcopies.
-  hardcopydir           $HOME/.screendir
+  hardcopydir           $HOME/.proFILEs/tempdir
 # hardcopydir           ~/.screen
 
 ## shell:  Default process started in screen's windows.
@@ -150,7 +150,10 @@ hardstatus alwayslastline '%{= kB}[%H]%{= kW}%-Lw%{= kG}%50> %n*%f %t%{= kW}%+Lw
 
 ## log file
  deflog on
-
+ logfile $HOME/.proFILEs/tempdir/screenlog
+ logfile flush 1800
+ logtstamp on
+ log on 
 
 ## ===============================================================
 ## KEY-binding
@@ -159,21 +162,21 @@ hardstatus alwayslastline '%{= kB}[%H]%{= kW}%-Lw%{= kG}%50> %n*%f %t%{= kW}%+Lw
 ## ESCAPE - the COMMAND CHARACTER
 ## ---------------------------------------------------------------
 ## escape 문자를 c-l로 설정
-escape ^l^l
+ escape ^l^l
 
 ## show keymapping
-bind h help
+ bind h help
 ## just ctrl+x will quit all window
-bindkey "^x" quit
+ bindkey "^x" quit
 
 ## copy/register/paste
 ## after input copy key, move your cursor and enter to start, enter to end, and run paste command
-bind ^c copy
-bind ^v paste .
+ bind ^c copy
+ bind ^v paste .
 
 ## 직접 명령을 넣으려면 escape :help 와 같은 형식을 넣으면 된다.
 # reload .screenrc
-bind r eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
+ bind r eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
 
 
 ## WINDOW handle 
@@ -181,32 +184,31 @@ bind r eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
 ## create & kill current window (exit)
 ## kill for buffer, # remove for window
 ## kill & remove will close both of buffer & window
-bind , screen
-bind . eval 'kill' 'remove'
-bind x remove
+ bind , screen
+ bind . eval 'kill' 'remove'
 
 ## window split horizontal
 #bind [ split
-bind [ eval 'split' 'focus down' 'screen'
-bind ] eval 'split -v' 'focus down' 'screen'
+ bind [ eval 'split' 'focus down' 'screen'
+ bind ] eval 'split -v' 'focus down' 'screen'
 
 
 ## move focus of window
-bindkey "^n" focus down
-bindkey "^p" focus up
-bindkey "^q" remove
+ bindkey "^n" focus down
+ bindkey "^p" focus up
+ bindkey "^q" remove
 
 ## switch window
-bind k prev 
-bind j next 
+ bind k prev 
+ bind j next 
 ## window listup
-bind l windowlist -b
+ bind l windowlist -b
 
 ## window resize escape, - , +/=
-bind ^l eval 'fit' 'redisplay'
-bind - eval 'echo "Resize window"' 'command -c resize'
-bind -c resize + eval 'resize +1' 'command -c resize'
-bind -c resize = eval 'resize -1' 'command -c resize'
+ bind ^l eval 'fit' 'redisplay'
+ bind - eval 'echo "Resize window"' 'command -c resize'
+ bind -c resize + eval 'resize +1' 'command -c resize'
+ bind -c resize = eval 'resize -1' 'command -c resize'
 
 ## ===============================================================
 ## STARTUP of programs in an extra window:
