@@ -42,7 +42,6 @@ alias ls='ls -thrF --color=auto --show-control-chars'
 alias grep='grep --color=auto'
 alias env='env|sort'
 alias dir='ls -al -F --color=auto| grep /'
-alias moveup='mv * .[^.]* ..'
 
 ############################### Tool ALIAS #####################################
 
@@ -52,7 +51,7 @@ alias du='echo subdir size is; du -sh'
 # alias byobu='byobu -U $*'
 alias sccl='screen -ls'
 alias sccr='screen -U -R'
-alias sccs='screen -U -R -c .proFILEs/.screenrc_spilt'
+alias sccs="screen -U -R -c ${proFILEdir}/.screenrc_spilt"
 function sccx()
 {
     if [ "$1" != "" ]; then 
@@ -69,6 +68,26 @@ function sccx()
 }
 
 ############################### ENV DEFINE ######################################
+alias moveup='mv * .[^.]* ..'
+alias gpro="cd ${proFILEdir}"
+function gtop()
+{
+    local TOPFILE=${proFILEdir}
+    local HERE=$PWD
+    local T=
+    while [ \( ! \( -d $TOPFILE \) \) -a \( $PWD != "/" \) ]; do
+        T=$PWD
+        if [ -d "$T/.repo" ]; then
+            \cd $T
+            return
+        fi
+        \cd ..
+    done
+    \cd $HERE
+    cd $HOME 
+}
+
+
 function setup-gdb()
 {
     adb devices
@@ -191,10 +210,10 @@ cd ${RET}
 ## ---------------------------------------------------------------------------
 # ex-copy: pwd | cc, ex-paste: cd $(cv)
 #command line copy+paste dir
-export CLCP_DIR="${HOME}/.proFILEs/"
+export CLCP_DIR="${proFILEdir}"
 
 #command line clipboard file
-export CLCF="${HOME}/.proFILEs/.path.log"
+export CLCF="${proFILEdir}/.path.log"
 
 alias copy_cc="sh ${CLCP_DIR}/cc.sh"
 alias coyp_cv="cat ${CLCF}"
